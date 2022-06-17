@@ -1,30 +1,24 @@
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
+import type { NextPage } from 'next';
+import { useEffect, useState } from 'react';
+import InputField from '../components/InputField';
+import { ConnectionHandler, IpAddressHandler } from '../handlers';
 
-function Home() {
+const home: NextPage = () => {
+  const [address, set_address] = useState('');
+
+  useEffect(() => {
+    ConnectionHandler.init(set_address);
+  }, []);
+
   return (
-    <React.Fragment>
-      <Head>
-        <title>Home - Nextron (with-typescript-tailwindcss)</title>
-      </Head>
-      <div className='grid grid-col-1 text-2xl w-full text-center'>
-        <img className='ml-auto mr-auto' src='/images/logo.png' />
-        <span>⚡ Electron ⚡</span>
-        <span>+</span>
-        <span>Next.js</span>
-        <span>+</span>
-        <span>tailwindcss</span>
-        <span>=</span>
-        <span>💕 </span>
+    <>
+      <div className='m-0 flex flex-col w-[20rem]' id='input-field-holder'>
+        <InputField id='ip-addr' on_submit={IpAddressHandler.on_submit_event} />
       </div>
-      <div className='mt-1 w-full flex-wrap flex justify-center'>
-        <Link href='/next'>
-          <a className='btn-blue'>Go to next page</a>
-        </Link>
-      </div>
-    </React.Fragment>
-  );
-}
 
-export default Home;
+      {address}
+    </>
+  );
+};
+
+export default home;

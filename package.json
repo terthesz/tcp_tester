@@ -11,8 +11,10 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
+    "@types/ping": "^0.4.1",
     "electron-serve": "^1.1.0",
-    "electron-store": "^8.0.1"
+    "electron-store": "^8.0.1",
+    "socket.io": "^4.5.1"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",

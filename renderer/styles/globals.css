@@ -5,7 +5,7 @@
 @layer components {
   
   html, body {
-    @apply w-screen h-screen m-0 p-0;
+    @apply w-full h-full m-0 p-5;
   }
 
 
@@ -15,4 +15,28 @@
     @apply box-border;
   }
 
+  #input-field-holder input {
+    @apply py-2 px-6 border-solid border-gray-300 border-[1px] outline-none rounded-lg drop-shadow-md;
+  }
+
+  #input-field-holder * {
+    @apply transition-all duration-300;
+  }
+}
+
+#input-field-holder.error input {
+  border-color: rgb(239 68 68);
+}
+
+#input-field-holder.error p {
+  opacity: 100;
+}
+
+#input-field-holder.success input {
+  border-color: rgb(74 222 128);
+}
+
+#input-field-holder.success p {
+  opacity: 100;
+  color: rgb(74 222 128);
 }
