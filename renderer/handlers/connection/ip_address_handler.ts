@@ -1,5 +1,5 @@
-import { ConnectionHandler } from '.';
-import { ping } from '../utils';
+import { ConnectionHandler } from '..';
+import { ping } from '../../utils';
 
 /**
  * This function is called when the user changes the IP address.

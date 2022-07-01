@@ -1,6 +1,6 @@
 const InputField = ({ id, on_submit }) => {
   return (
-    <>
+    <div id='input-field-holder'>
       <p className='opacity-0 w-full text-center text-sm text-red-500 mb-1'>Invalid IP address.</p>
       <input
         type='text'
@@ -16,7 +16,7 @@ const InputField = ({ id, on_submit }) => {
           }
         }}
       />
-    </>
+    </div>
   );
 };
 

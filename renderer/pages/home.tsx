@@ -1,7 +1,9 @@
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import InputField from '../components/InputField';
+import AddressInputField from '../components/AddressInputField';
 import { ConnectionHandler, IpAddressHandler } from '../handlers';
+import RunButton from '../components/RunButton';
+import EngineChoice from '../components/EngineChoice';
 
 const home: NextPage = () => {
   const [address, set_address] = useState('');
@@ -12,9 +14,13 @@ const home: NextPage = () => {
 
   return (
     <>
-      <div className='m-0 flex flex-col w-[20rem]' id='input-field-holder'>
-        <InputField id='ip-addr' on_submit={IpAddressHandler.on_submit_event} />
+      <div className='m-0 flex relative'>
+        <AddressInputField id='ip-addr' on_submit={IpAddressHandler.on_submit_event} />
+        <div className='flex absolute left-[19rem] bottom-0'>
+          <RunButton />
+        </div>
       </div>
+      <EngineChoice />
 
       {address}
     </>

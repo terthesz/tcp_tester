@@ -8,4 +8,9 @@ module.exports = {
   theme: {
   },
   plugins: [],
+  safelist: [
+    {
+      pattern: /.*/
+    }
+  ]
 };
