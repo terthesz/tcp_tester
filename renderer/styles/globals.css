@@ -37,6 +37,11 @@
   #engine-choice p.active {
     @apply text-black after:w-[50%];
   }
+
+  button.disabled {
+    @apply cursor-not-allowed pointer-events-none bg-gray-400 text-opacity-80;
+  }
+
 }
 
 #input-field-holder.error input {

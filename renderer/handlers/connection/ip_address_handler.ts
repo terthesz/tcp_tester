@@ -1,4 +1,4 @@
-import { ConnectionHandler } from '..';
+import { ConnectionHandler, RunButtonHandler } from '..';
 import { ping } from '../../utils';
 
 /**
@@ -34,6 +34,8 @@ async function handle_input_field_state(parent: HTMLDivElement, input_field: HTM
     parent.classList.remove('success');
     parent.classList.remove('error');
 
+    RunButtonHandler.set_state(false);
+
     return;
   }
 
@@ -45,10 +47,14 @@ async function handle_input_field_state(parent: HTMLDivElement, input_field: HTM
     parent.classList.remove('error');
     parent.classList.add('success');
 
+    RunButtonHandler.set_state();
+
     return;
   }
 
   parent.getElementsByTagName('p')[0].innerHTML = 'Invalid IP address.';
+
+  RunButtonHandler.set_state(false);
 
   parent.classList.add('error');
   parent.classList.remove('success');

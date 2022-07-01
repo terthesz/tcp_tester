@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
+import { RunButtonHandler, StoreHandler } from '..';
 
 /**
  * Handles the connection to the server.
@@ -29,6 +30,32 @@ class ConnectionHandler {
 
   get address(): string {
     return `${this._address}${this._port ? `:${this._port}` : ''}`;
+  }
+
+  /**
+   * Connects to the server.
+   */
+  connect() {
+    const engine = StoreHandler.get('engine_choice');
+
+    const unsubscribe = StoreHandler.onDidChange('engine_choice', () => {
+      unsubscribe();
+
+      this.disconnect();
+
+      this.connect();
+    });
+
+    // connect
+  }
+
+  /**
+   * Disconnects from the server.
+   */
+  disconnect() {
+    // disconnect
+
+    RunButtonHandler.set_state(false);
   }
 }
 
